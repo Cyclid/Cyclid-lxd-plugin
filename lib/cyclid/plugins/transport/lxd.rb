@@ -116,10 +116,12 @@ module Cyclid
 
         # Copy data from a local IO object to a remote file via. the API
         def upload(io, path)
+          @client.push_file(io, @name, path)
         end
 
         # Copy a data from remote file to a local IO object
         def download(io, path)
+          @client.pull_file(@name, path, io)
         end
 
         # Register this plugin
