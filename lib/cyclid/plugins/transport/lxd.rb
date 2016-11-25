@@ -15,7 +15,6 @@
 
 require 'hyperkit'
 require 'websocket-client-simple'
-require 'cyclid/log_buffer'
 
 # Top level module for the core Cyclid code.
 module Cyclid

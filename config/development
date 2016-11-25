@@ -1,0 +1,10 @@
+server:
+  database: sqlite3:memory
+  log: stderr
+  dispatcher: local
+  builder: lxd
+  plugins:
+    lxd:
+      api: https://example.com:8443
+      client_cert: client.crt
+      client_key: client.key

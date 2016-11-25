@@ -8,5 +8,11 @@ gem 'hyperkit', git: 'git@github.com:Cyclid/hyperkit.git', branch: 'vanders/exec
 group :development, :test do
   gem 'rake'
   gem 'rubocop'
+  gem 'rspec'
+  gem 'simplecov'
+  gem 'yard'
+  gem 'webmock'
   gem 'rubygems-tasks'
+
+  gem 'cyclid', path: '../Cyclid'
 end

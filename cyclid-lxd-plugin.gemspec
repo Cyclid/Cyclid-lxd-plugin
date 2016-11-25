@@ -12,4 +12,6 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency('hyperkit', '~> 1.0')
   s.add_runtime_dependency('websocket-client-simple', '~> 0.3.0')
+
+  s.add_runtime_dependency('cyclid', '~> 0.2')
 end
