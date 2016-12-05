@@ -9,5 +9,5 @@ end
 
 require_relative '../../Cyclid/spec/spec_setup'
 
-require_relative '../lib/cyclid/plugins/transport/lxd'
+require_relative '../lib/cyclid/plugins/transport/lxdapi'
 require_relative '../lib/cyclid/plugins/builder/lxd'
