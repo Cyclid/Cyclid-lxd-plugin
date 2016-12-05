@@ -24,7 +24,6 @@ class Empty
 end
 
 describe Cyclid::API::Plugins::LxdApi do
-
   let :ctx do
     ctx_hash
   end
@@ -46,9 +45,9 @@ describe Cyclid::API::Plugins::LxdApi do
   end
 
   subject do
-      Cyclid::API::Plugins::LxdApi.new(host: instance_name,
-                                       log: STDERR,
-                                       ctx: ctx_hash)
+    Cyclid::API::Plugins::LxdApi.new(host: instance_name,
+                                     log: STDERR,
+                                     ctx: ctx_hash)
   end
 
   it 'should create a new instance' do
@@ -66,7 +65,7 @@ describe Cyclid::API::Plugins::LxdApi do
     expect(ws).to receive(:on).with(:error).and_yield('')
     expect(WebSocket::Client::Simple).to receive(:connect).and_yield(ws)
 
-    expect( subject.exec('/bin/true') ).to be true
+    expect(subject.exec('/bin/true')).to be true
   end
 
   it 'should upload a file' do

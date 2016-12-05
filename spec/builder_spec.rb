@@ -14,7 +14,6 @@ class RemoteImage
 end
 
 describe Cyclid::API::Plugins::Lxd do
-
   subject do
     Cyclid::API::Plugins::Lxd.new
   end
@@ -28,11 +27,11 @@ describe Cyclid::API::Plugins::Lxd do
   end
 
   context 'obtaining a build host' do
-
     before do
       expect_any_instance_of(Hyperkit::Client).to receive(:create_container)
       expect_any_instance_of(Hyperkit::Client).to receive(:start_container)
-      expect_any_instance_of(Hyperkit::Client).to receive_message_chain('container.status').and_return('Running')
+      expect_any_instance_of(Hyperkit::Client)
+        .to receive_message_chain('container.status').and_return('Running')
     end
 
     it 'returns a host with "lxdapi" as the only valid transport' do
@@ -43,7 +42,6 @@ describe Cyclid::API::Plugins::Lxd do
     end
 
     context 'when the template exists on the server' do
-
       before do
         expect_any_instance_of(Hyperkit::Client).to receive(:image_by_alias).and_return(Image.new)
       end
@@ -58,14 +56,14 @@ describe Cyclid::API::Plugins::Lxd do
         expect(buildhost[:distro]).to eq('example')
         expect(buildhost[:release]).to eq('test')
       end
-
-   end
+    end
 
     context 'when the template does not exist on the server' do
-
       before do
-        expect_any_instance_of(Hyperkit::Client).to receive(:image_by_alias).and_raise(Hyperkit::NotFound)
-        expect_any_instance_of(Hyperkit::Client).to receive(:create_image_from_remote).and_return(RemoteImage.new)
+        expect_any_instance_of(Hyperkit::Client)
+          .to receive(:image_by_alias).and_raise(Hyperkit::NotFound)
+        expect_any_instance_of(Hyperkit::Client)
+          .to receive(:create_image_from_remote).and_return(RemoteImage.new)
         expect_any_instance_of(Hyperkit::Client).to receive(:create_image_alias)
       end
 
@@ -79,7 +77,6 @@ describe Cyclid::API::Plugins::Lxd do
         expect(buildhost[:distro]).to eq('example')
         expect(buildhost[:release]).to eq('test')
       end
-
     end
   end
 
@@ -87,7 +84,8 @@ describe Cyclid::API::Plugins::Lxd do
     before do
       expect_any_instance_of(Hyperkit::Client).to receive(:stop_container)
       expect_any_instance_of(Hyperkit::Client).to receive(:delete_container)
-      expect_any_instance_of(Hyperkit::Client).to receive_message_chain('container.status').and_return('Stopped')
+      expect_any_instance_of(Hyperkit::Client)
+        .to receive_message_chain('container.status').and_return('Stopped')
     end
 
     it 'releases a build host' do
@@ -97,5 +95,4 @@ describe Cyclid::API::Plugins::Lxd do
       expect{ subject.release(nil, buildhost) }.to_not raise_error
     end
   end
-
 end

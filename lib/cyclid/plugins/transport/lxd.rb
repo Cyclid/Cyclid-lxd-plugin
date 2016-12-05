@@ -110,7 +110,7 @@ module Cyclid
           Cyclid.logger.debug "status=#{status.inspect}"
 
           @exit_code = status[:metadata][:return]
-          @exit_code == 0 ? true : false
+          @exit_code.zero? ? true : false
         end
 
         # Copy data from a local IO object to a remote file via. the API
