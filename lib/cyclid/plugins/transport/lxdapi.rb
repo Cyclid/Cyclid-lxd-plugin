@@ -46,9 +46,12 @@ module Cyclid
                                          client_key: @config[:client_key])
 
           # Grab some data from the context
+          Cyclid.logger.debug "lxdapi args=#{args.inspect}"
           ctx = args[:ctx]
           @base_env = { 'HOME' => ctx[:workspace],
                         'TERM' => 'xterm-mono' }
+
+          @username = ctx[:username]
         end
 
         # Execute a command via. the LXD API
@@ -79,9 +82,11 @@ module Cyclid
             ws.on :message do |msg|
               close if msg.data.empty?
               # Strip out any XTerm control characters and convert lint endings
-              data = msg.data.force_encoding('UTF-8')
-                        .gsub(/\r\n/, "\n")
-                        .gsub(/\r+/, "\n")
+              data = msg.data.encode('US-ASCII',
+                                     invalid: :replace,
+                                     undef: :replace,
+                                     universal_newline: true)
+                        .squeeze("\n")
                         .gsub(/\033\[(.?\d+\D?|\w+)/, '')
 
               log.write data
@@ -154,7 +159,11 @@ module Cyclid
         def build_command(cmd, path = nil)
           command = []
           command << "cd #{path}" if path
-          command << cmd
+          command << if @username == 'root'
+                       cmd
+                     else
+                       "sudo -E #{cmd}"
+                     end
           "sh -l -c '#{command.join(';')}'"
         end
       end

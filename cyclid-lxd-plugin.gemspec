@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = 'contact@cyclid.io'
   s.files       = Dir.glob('lib/**/*')
 
-  s.add_runtime_dependency('hyperkit', '~> 1.0')
+  s.add_runtime_dependency('hyperkit', '~> 1.1')
   s.add_runtime_dependency('websocket-client-simple', '~> 0.3.0')
 
   s.add_runtime_dependency('cyclid', '~> 0.2')
