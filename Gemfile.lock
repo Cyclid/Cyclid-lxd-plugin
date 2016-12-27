@@ -30,7 +30,7 @@ PATH
 PATH
   remote: .
   specs:
-    cyclid-lxd-plugin (0.1.0)
+    cyclid-lxd-plugin (0.1.1)
       cyclid (~> 0.2)
       hyperkit (~> 1.1)
       websocket-client-simple (~> 0.3.0)

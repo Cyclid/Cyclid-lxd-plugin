@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 Gem::Specification.new do |s|
   s.name        = 'cyclid-lxd-plugin'
-  s.version     = '0.1.0'
+  s.version     = '0.1.1'
   s.licenses    = ['Apache-2.0']
   s.summary     = 'Cyclid LXD Builder & Transport plugin'
   s.description = 'Creates LXD container basedt build hosts'
