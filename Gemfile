@@ -13,4 +13,5 @@ group :development, :test do
   gem 'yard'
 
   gem 'cyclid', path: '../Cyclid'
+  gem 'sqlite3'
 end
