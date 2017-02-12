@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.version     = '0.1.1'
   s.licenses    = ['Apache-2.0']
   s.summary     = 'Cyclid LXD Builder & Transport plugin'
-  s.description = 'Creates LXD container basedt build hosts'
+  s.description = 'Creates LXD container based build hosts'
   s.authors     = ['Kristian Van Der Vliet']
   s.homepage    = 'https://cyclid.io'
   s.email       = 'contact@cyclid.io'
