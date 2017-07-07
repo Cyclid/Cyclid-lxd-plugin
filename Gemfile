@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 gemspec
@@ -13,4 +14,5 @@ group :development, :test do
   gem 'yard'
 
   gem 'cyclid', path: '../Cyclid'
+  gem 'cyclid-core', path: '../Cyclid-core'
 end

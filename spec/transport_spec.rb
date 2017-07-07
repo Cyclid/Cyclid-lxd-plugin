@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+
+# rubocop:disable Metrics/BlockLength
+
 require 'spec_helper'
 
 def ctx_hash
