@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 Gem::Specification.new do |s|
   s.name        = 'cyclid-lxd-plugin'
-  s.version     = '0.1.1'
+  s.version     = '0.2.0'
   s.licenses    = ['Apache-2.0']
   s.summary     = 'Cyclid LXD Builder & Transport plugin'
   s.description = 'Creates LXD container based build hosts'
@@ -13,5 +14,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('hyperkit', '~> 1.1')
   s.add_runtime_dependency('websocket-client-simple', '~> 0.3.0')
 
-  s.add_runtime_dependency('cyclid', '~> 0.2')
+  s.add_runtime_dependency('cyclid', '~> 0.4')
 end

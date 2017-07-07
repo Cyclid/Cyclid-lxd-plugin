@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Copyright 2016 Liqwyd Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -109,9 +110,9 @@ module Cyclid
           raise 'the LXD API URL must be provided' \
             unless lxd_config.key? :api
 
-          lxd_config[:client_cert] = File.join(%w(/ etc cyclid lxd_client.crt)) \
+          lxd_config[:client_cert] = File.join(%w[/ etc cyclid lxd_client.crt]) \
             unless lxd_config.key? :client_cert
-          lxd_config[:client_key] = File.join(%w(/ etc cyclid lxd_client.key)) \
+          lxd_config[:client_key] = File.join(%w[/ etc cyclid lxd_client.key]) \
             unless lxd_config.key? :client_key
 
           lxd_config[:verify_ssl] = false \

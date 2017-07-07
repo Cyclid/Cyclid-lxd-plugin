@@ -5,7 +5,7 @@ begin
   require 'bundler/setup'
 end
 
-ENV['CYCLID_CONFIG'] = File.join(%w(config development))
+ENV['CYCLID_CONFIG'] = File.join(%w[config development])
 
 require 'rubygems/tasks'
 Gem::Tasks.new
